@@ -43,7 +43,7 @@ while (restartGame) {
         } else if (guess < randomNum) { //If the guess is too low, tells them and has them guess again
             guess = prompt(`Too low, guess again. You have ${attempts} guess(es) remaining: `)
         }
-        attempts--;
+        attempts--
     }
     if (guess == randomNum) { //If they guessed correctly, congratulates them
         alert(`Correct, you win! The number was: ${randomNum}`);
