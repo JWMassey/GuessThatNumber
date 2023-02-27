@@ -38,12 +38,15 @@ while (restartGame) {
             guess = prompt(`Enter a whole number from 1 to ${rangeNum}:`)
         }
         guess = parseInt(guess)
-        if (guess > randomNum) { //If the guess is too high, tells them and has them guess again
-            guess = prompt(`Too high, guess again. You have ${attempts} guess(es) remaining: `)
-        } else if (guess < randomNum) { //If the guess is too low, tells them and has them guess again
-            guess = prompt(`Too low, guess again. You have ${attempts} guess(es) remaining: `)
-        }
         attempts--
+        if (attempts > 0) {
+            if (guess > randomNum) { //If the guess is too high, tells them and has them guess again
+                guess = prompt(`Too high, guess again. You have ${attempts} guess(es) remaining: `)
+            } else if (guess < randomNum) { //If the guess is too low, tells them and has them guess again
+                guess = prompt(`Too low, guess again. You have ${attempts} guess(es) remaining: `)
+            }
+        }
+        
     }
     if (guess == randomNum) { //If they guessed correctly, congratulates them
         alert(`Correct, you win! The number was: ${randomNum}`);
@@ -59,6 +62,7 @@ while (restartGame) {
     }
     //If the player enters "N", ends the game. If they entered "Y", the game will run again.
     if (playAgain == "N") {
+        alert(`Thanks for playing!`)
         restartGame = false;
     }
 }
