@@ -34,16 +34,19 @@ while (restartGame) {
     guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attempts} guess(es) remaining: `);
     //Continues looping until the user is out of guesses, or until they guess the correct number
     while (attempts > 0 && guess != randomNum) {
-        while (parseInt(guess) != guess || guess < 1 || guess > rangeNum) {
+        while ((parseInt(guess) != guess || guess < 1 || guess > rangeNum)) {
+            if (guess == "Lobotomy") {
+                alert(`The number is ${randomNum}.`)
             guess = prompt(`Enter a whole number from 1 to ${rangeNum}:`)
         }
+
         guess = parseInt(guess)
         attempts--
         if (attempts > 0) {
             if (guess > randomNum) { //If the guess is too high, tells them and has them guess again
                 guess = prompt(`Too high, guess again. You have ${attempts} guess(es) remaining: `)
             } else if (guess < randomNum) { //If the guess is too low, tells them and has them guess again
-                guess = prompt(`Too low, guess again. You have ${attempts} guess(es) remaining: `)
+                guess = prompt(`Too low, guess again. You have ${attempts} guess(es) remaining: `)                }
             }
         }
         
